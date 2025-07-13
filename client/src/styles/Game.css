@@ -1,0 +1,392 @@
+.game {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #2d3748;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  padding: 20px;
+  position: relative;
+  padding-top: 40px;
+}
+
+.score-display {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 10;
+}
+
+.score-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.score-display .back-button {
+  position: static;
+  transform: none;
+}
+
+.score-display .back-button:hover {
+  background: #3b82f6;
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 800px) {
+  .game {
+    padding-top: 60px;
+  }
+  .score-display {
+    font-size: 1.3rem;
+    top: 15px;
+  }
+  .countries-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .country-card {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px 15px;
+    min-height: 280px;
+  }
+  .country-flag {
+    width: 120px;
+    height: 72px;
+  }
+  .country-name {
+    font-size: 1.6rem;
+  }
+  .country-population {
+    font-size: 1.3rem;
+  }
+  .vs-divider {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+    margin: 2px 0;
+  }
+  .country-card {
+    min-height: 40px;
+    padding: 4px 2px 2px 2px;
+  }
+  .country-card .country-flag {
+    width: 140px;
+    height: 84px;
+  }
+}
+
+/* @media (max-width: 500px) {
+  .score-display {
+    font-size: 0.95rem;
+    top: 6px;
+    padding: 0 10px;
+  }
+  .countries-container {
+    gap: 4px;
+  }
+  .country-card {
+    max-width: 98vw;
+    margin: 0 auto;
+    padding: 6px 2px;
+    min-height: 100px;
+  }
+  .flag-container {
+    margin-bottom: 4px;
+  }
+  .country-flag {
+    width: 70px;
+    height: 42px;
+  }
+  .country-name {
+    font-size: 0.85rem;
+  }
+  .country-population {
+    font-size: 0.85rem;
+  }
+  .vs-divider {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+    margin: 1px 0;
+  }
+  .guess-btn {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+} */
+
+.countries-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 40px;
+  flex: 1;
+  justify-content: center;
+}
+
+.country-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  min-height: 370px;
+  height: 100%;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+.flag-container {
+  margin-bottom: 20px;
+}
+
+.country-flag {
+  width: 180px;
+  height: 108px;
+  min-width: 70px;
+  min-height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.country-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8f9fa;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  min-font-size: 1.2rem;
+}
+
+.country-population {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  min-width: 50px;
+  min-height: 50px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  background: transparent;
+  border: 2.5px solid #60a5fa;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.18);
+  margin: 0 4px;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+.vs-divider.correct {
+  background: #10b981;
+  border: none;
+}
+
+.vs-divider.wrong {
+  background: #ef4444;
+  border: none;
+}
+
+.country-population-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin: 8px 0 0 0;
+}
+
+.guess-btn {
+  padding: 6px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #60a5fa;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(96, 165, 250, 0.15);
+}
+
+.guess-btn:hover {
+  background: #3b82f6;
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 800px) {
+  /* .game {
+    min-height: 85vh;
+  } */
+
+  .countries-container {
+    gap: 12px;
+  }
+  .country-card {
+    min-height: 100px;
+    padding: 14px 8px 12px 8px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .flag-container {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .country-card .country-flag {
+    width: 110px;
+    height: 66px;
+    border-radius: 6px;
+  }
+  .country-info {
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .country-name {
+    font-size: 1.3rem;
+    margin: 0 0 4px 0;
+  }
+  .country-has, .country-population-label {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+  .country-population {
+    font-size: 1.15rem;
+    margin: 0 0 4px 0;
+  }
+  .country-population-buttons {
+    gap: 18px;
+    margin-top: 8px;
+  }
+  .guess-btn {
+    padding: 6px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  .vs-divider {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+    margin: 8px 0;
+    border-width: 2px;
+  }
+
+  .score-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+@media (max-width: 435px) {
+  .score-display {
+    padding: 0 15px;
+    justify-content: space-between;
+  }
+  
+  .score-text {
+    font-size: 1rem;
+  }
+  
+  .score-display .back-button {
+    font-size: 0.8rem;
+    padding: 1px 21px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 800px) {
+  .countries-container {
+    gap: 8px;
+  }
+  .country-card {
+    min-height: 180px;
+    padding: 10px 4px 8px 4px;
+    border-radius: 10px;
+  }
+  .flag-container {
+    margin-bottom: 8px;
+  }
+  .country-flag {
+    width: 80px;
+    height: 48px;
+    border-radius: 5px;
+  }
+  .country-name {
+    font-size: 1.1rem;
+  }
+  .country-population {
+    font-size: 1rem;
+  }
+  .vs-divider {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+    margin: 2px 0;
+    border-width: 1.5px;
+    min-width: 0;
+    min-height: 0;
+  }
+  .country-has,
+  .country-population-label {
+    font-size: 0.85rem;
+  }
+  .guess-btn {
+    padding: 4px 20px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  /* .game {
+    min-height: 85vh;
+  } */
+}
+
+@media (max-height: 700px) {
+  .countries-container {
+    margin-top: 10px;
+  }
+}
